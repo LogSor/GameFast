@@ -1,8 +1,8 @@
 package sample;
 
-public class Box {
+public class Square {
     /*
-    Box of board (case du plateau)
+    Square of board (case du plateau)
      */
 
 
@@ -10,14 +10,14 @@ public class Box {
     protected Pawns pawns; // pawns of box
 
 
-    public Box(int row, int columns) {
+    public Square(int row, int columns) {
 
         this.row = row;
         this.columns = columns;
         this.pawns=null;
     }
 
-    public Box(int row, int columns, Pawns pawns) {
+    public Square(int row, int columns, Pawns pawns) {
 
         this.row = row;
         this.columns = columns;

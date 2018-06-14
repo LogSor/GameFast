@@ -5,17 +5,17 @@ import java.util.ArrayList;
 
 public class Board {
     protected ArrayList<Pawns> pawns;
-    protected Box[][] boxs;
+    protected Square[][] squares;
     protected Player redPlayer,bluePlayer; //players
 
-    public Board(ArrayList<Pawns> pawns, Box[][] boxs) {
+    public Board(ArrayList<Pawns> pawns, Square[][] squares) {
         this.pawns = pawns;
-        this.boxs = boxs;
+        this.squares = squares;
     }
 
     public Board(){
         pawns= new ArrayList<>();
-        boxs = new Box[8][8];
+        squares = new Square[8][8];
         redPlayer = new Player("Joueur Blue",Color.RED);
         bluePlayer = new Player("Joueur Rouge",Color.BLUE);
 
@@ -38,9 +38,9 @@ public class Board {
                                 bluePlayer.addPawns(p);
                             }
 
-                            boxs[i][j]= new Box(i,j,p);
+                            squares[i][j]= new Square(i,j,p);
                         }else {
-                            boxs[i][j]= new Box(i,j);
+                            squares[i][j]= new Square(i,j);
                         }
 
                     }else {
@@ -54,20 +54,20 @@ public class Board {
                                 bluePlayer.addPawns(p);
                             }
 
-                            boxs[i][j]= new Box(i,j,p);
+                            squares[i][j]= new Square(i,j,p);
                         }else {
-                            boxs[i][j]= new Box(i,j);
+                            squares[i][j]= new Square(i,j);
                         }
                     }
                 } else {
-                    boxs[i][j]= new Box(i,j);
+                    squares[i][j]= new Square(i,j);
                 }
             }
         }
     }
 
-    public ArrayList<Box> findMovePawn(Pawns p){
-        ArrayList<Box> findBox = new ArrayList<>();
+    public ArrayList<Square> findMovePawn(Pawns p){
+        ArrayList<Square> findSquares = new ArrayList<>();
         int i,j;
         i=p.row;
         j=p.columns;
@@ -81,14 +81,14 @@ public class Board {
         }
 
         //diagonale avant gauche
-        while (boxs[i][j].pawns==null && i<8 && j>-1){
-            findBox.add(boxs[i][j]);
+        while (squares[i][j].pawns==null && i<8 && j>-1){
+            findSquares.add(squares[i][j]);
             i++;
             j--;
         }
 
-        if (boxs[i][j].pawns.player.color==opposingColor){
-            findBox.add(boxs[i][j]);
+        if (squares[i][j].pawns.player.color==opposingColor){
+            findSquares.add(squares[i][j]);
         }
 
 
@@ -96,42 +96,42 @@ public class Board {
         //diagonale avant droite
         i=p.row;
         j=p.columns;
-        while (boxs[i][j].pawns==null && i<8 && j<8){
-            findBox.add(boxs[i][j]);
+        while (squares[i][j].pawns==null && i<8 && j<8){
+            findSquares.add(squares[i][j]);
             i++;
             j++;
         }
 
-        if (boxs[i][j].pawns.player.color==opposingColor){
-            findBox.add(boxs[i][j]);
+        if (squares[i][j].pawns.player.color==opposingColor){
+            findSquares.add(squares[i][j]);
         }
 
         //diagonale arrière gauche
         i=p.row;
         j=p.columns;
-        while (boxs[i][j].pawns==null && i>-1 && j>-1){
-            findBox.add(boxs[i][j]);
+        while (squares[i][j].pawns==null && i>-1 && j>-1){
+            findSquares.add(squares[i][j]);
             i--;
             j--;
         }
 
-        if (boxs[i][j].pawns.player.color==opposingColor){
-            findBox.add(boxs[i][j]);
+        if (squares[i][j].pawns.player.color==opposingColor){
+            findSquares.add(squares[i][j]);
         }
 
         //diagonal arrière droite
         i=p.row;
         j=p.columns;
-        while (boxs[i][j].pawns==null && i>-1 && j<8){
-            findBox.add(boxs[i][j]);
+        while (squares[i][j].pawns==null && i>-1 && j<8){
+            findSquares.add(squares[i][j]);
             i--;
             j++;
         }
 
-        if (boxs[i][j].pawns.player.color==opposingColor){
-            findBox.add(boxs[i][j]);
+        if (squares[i][j].pawns.player.color==opposingColor){
+            findSquares.add(squares[i][j]);
         }
-        return findBox;
+        return findSquares;
     }
 
     public Player cannotMove(){
@@ -160,7 +160,7 @@ public class Board {
         return null;
     }
 
-    public Box movePawns(Pawns p ,Box b){
+    public Square movePawns(Pawns p , Square b){
         if (b != null) {
 
             if (b.pawns != null) {
@@ -184,11 +184,11 @@ public class Board {
         this.pawns = pawns;
     }
 
-    public Box[][] getBoxs() {
-        return boxs;
+    public Square[][] getSquares() {
+        return squares;
     }
 
-    public void setBoxs(Box[][] boxs) {
-        this.boxs = boxs;
+    public void setSquares(Square[][] squares) {
+        this.squares = squares;
     }
 }
