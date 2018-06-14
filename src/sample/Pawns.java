@@ -13,6 +13,8 @@ public class Pawns {
         this.player = player;
     }
 
+    // permet de manger un pion si il n'est pas de la même couleur et renvoie le tab contenant les nouvelles cordonées tab[0] = row et tab[1] = columns
+    //si on peut le mange on supprime le pion p de la liste de pion du joueur concerné
     public int[] eatPawns(Pawns p){
         if (p.player.color != player.color){
             row=p.row;
@@ -26,6 +28,7 @@ public class Pawns {
         return null;
     }
 
+    // permet de deplacer le pions sur i et j, renvoie le tab contenant les nouvelles cordonées tab[0] = row et tab[1] = columns
     public int[] movePawns(int i, int j){
         row=i;
         columns=j;
