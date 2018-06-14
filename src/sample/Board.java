@@ -13,6 +13,7 @@ public class Board {
         this.squares = squares;
     }
 
+    // permet d'initialisez le plateau
     public Board(){
         pawns= new ArrayList<>();
         squares = new Square[8][8];
@@ -22,6 +23,7 @@ public class Board {
         initalisationBoard();
     }
 
+    //initialiser le plateau avec les pions et ajoute au joueurs leurs pions
     public void initalisationBoard(){
         for (int i=0;i<8;i++){
 
@@ -66,6 +68,7 @@ public class Board {
         }
     }
 
+    // renvoie les cases que le pion p peut acceder
     public ArrayList<Square> findMovePawn(Pawns p){
         ArrayList<Square> findSquares = new ArrayList<>();
         int i,j;
@@ -134,6 +137,7 @@ public class Board {
         return findSquares;
     }
 
+    // renvoie le joueur qui n'as plus de déplacement possible, sinon null
     public Player cannotMove(){
         int nbPawns=0;
         for (Pawns p : bluePlayer.pawns
@@ -160,6 +164,7 @@ public class Board {
         return null;
     }
 
+    //permet de move le pion p sur la case b et renvoie la case si il peut y acceder sinon null
     public Square movePawns(Pawns p , Square b){
         if (b != null) {
 

@@ -12,6 +12,7 @@ public class Party {
         this.isFinish = false;
     }
 
+    //verifie si partie est fini,  true si oui, sinon false
     public boolean partyIsFinish() {
         if (board.redPlayer.emptyPawns()) {
 
@@ -36,6 +37,7 @@ public class Party {
         return false;
     }
 
+    //recupere le resultat de la partie
     public void resultOfparty(){
         if(partyIsFinish()){
             System.out.println("winner is "+ winner);
