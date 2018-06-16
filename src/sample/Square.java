@@ -51,6 +51,10 @@ public class Square {
 
     public String toString() {
 
-        return "Row:"+row+"Colums:" +columns+" Pawns :"+ pawns.toString();
+        if(pawns!= null){
+            return "Row:"+row+"Colums:" +columns+" Pawns :"+ pawns.toString();
+        }else
+            return "Row:"+row+"Colums:" +columns+" Pawns : nulll";
+
     }
 }

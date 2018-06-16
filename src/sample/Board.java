@@ -161,11 +161,22 @@ public class Board {
         if (b != null) {
 
             if (b.pawns != null) {
-                p.eatPawns(b.pawns);
-                b.pawns = p;
+                int tab[] = p.eatPawns(b.pawns);
+                if (tab!=null){
+                    squares[tab[0]][tab[1]].pawns=null;
+                    b.pawns = p;
+                }else {
+                    System.out.println("vous ne pouvez pas mangé un pion allié");
+                }
+
             } else {
-                p.movePawns(b.row, b.columns);
-                b.pawns = p;
+                int tab[] =p.movePawns(b.row, b.columns);
+
+                if (tab!=null){
+                    squares[tab[0]][tab[1]].pawns=null;
+                    b.pawns = p;
+                }
+
             }
             return b;
         }
@@ -180,12 +191,12 @@ public class Board {
     public Pawns createPawn(int i, int j){
         Pawns p;
         if (i<3){
-            p = new Pawns(i,j,redPlayer);
-            redPlayer.addPawns(p);
-            pawns.add(p);
-        }else{
             p = new Pawns(i,j,bluePlayer);
             bluePlayer.addPawns(p);
+            pawns.add(p);
+        }else{
+            p = new Pawns(i,j,redPlayer);
+            redPlayer.addPawns(p);
             pawns.add(p);
         }
         return p;

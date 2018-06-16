@@ -67,4 +67,9 @@ public class Pawns {
         this.player = player;
     }
 
+    public String toString(){
+        return "Row:"+ row + " Columns:"+ columns+ " Player :" + player.name;
+    }
+
+
 }

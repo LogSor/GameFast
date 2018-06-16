@@ -28,6 +28,39 @@ public class Controller implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         model = new Model();
+
+
+        for (Pawns p:model.board.pawns
+                ) {
+            System.out.println(p);
+        }
+
+        System.out.println("coordonné du pion:"+model.board.pawns.get(10).row+ ":"+ model.board.pawns.get(10).columns);
+
+        System.out.println("case en +1,+1 :"+model.board.squares[model.board.pawns.get(10).row+1][model.board.pawns.get(10).row+1]); // case en +1, +1
+        model.board.movePawns(model.board.pawns.get(10),model.board.squares[model.board.pawns.get(10).row+1][model.board.pawns.get(10).row+1]); //avance en +1,+1
+        System.out.println("nouvelle coordonée du pion:"+model.board.pawns.get(10).row+ ":"+ model.board.pawns.get(10).columns); // il est en +1, +1
+        System.out.println("Ancienne case du pion ne possède plus de pion donc null :"+model.board.squares[2][4].pawns);
+
+        System.out.println("*******************************");
+        System.out.println("Ancienne coordonnée:"+model.board.pawns.get(10).row+ ":"+ model.board.pawns.get(10).columns);
+        System.out.println("Case à atteindre :"+ model.board.squares[5][7].pawns);
+        model.board.movePawns(model.board.pawns.get(10),model.board.squares[5][7]); //avance sur 5,7
+        System.out.println("ancienne case ne possède plus de pion donc null :" + model.board.squares[2][4].pawns);
+        System.out.println("Nouvelle case(case atteinte) on a bien mange le blue :"+ model.board.squares[5][7].pawns);
+
+        System.out.println("*******************************");
+        System.out.println("Ancienne coordonnée:"+model.board.pawns.get(10).row+ ":"+ model.board.pawns.get(10).columns);
+        System.out.println("Case à atteindre :"+ model.board.squares[0][0].pawns);
+        model.board.movePawns(model.board.pawns.get(10),model.board.squares[0][0]); //avance sur 0,0
+        System.out.println("ancienne case  possède   pion donc  :" + model.board.squares[5][7].pawns);
+        System.out.println("Nouvelle case non atteinte car allié:"+ model.board.squares[0][0].pawns);
+
+        //System.out.println(model.board.pawns.get(0) + ":");
+        //System.out.println(model.board.findMovePawn(model.board.pawns.get(0)));
+
+        // System.out.println("coordonné du pion:"+model.board.pawns.get(10).row+ ":"+ model.board.pawns.get(10).columns);
+        //System.out.println(model.board.findMovePawn(model.board.pawns.get(10)));
     }
 
     @FXML
