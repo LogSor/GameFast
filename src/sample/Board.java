@@ -156,6 +156,7 @@ public class Board {
         return null;
     }
 
+
     //permet de move le pion p sur la case b et renvoie la case si il peut y acceder sinon null
     public Square movePawns(Pawns p , Square b){
         if (b != null) {
