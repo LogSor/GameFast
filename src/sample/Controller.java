@@ -70,37 +70,21 @@ public class Controller implements Initializable{
         int rowActual=0;
         int columnsActual=0;
 
-        /*--------------------Use parent and children for recup square and position--------------------
-        if (event.getSource() instanceof Circle) {
-            for (Node node : gridPane.getChildren()){
-                if (node.equals(((Circle) event.getSource()).getParent())){
-                    rowActual=node.getScaleX();
-                    columnsActual=node.getScaleY();
-                    System.out.println(((Circle) event.getSource()).getScaleX());
-                }
-            }
-        }
-        =================================================================================================
-
-        --------------------------Recuperation directly position of circle------------------------------*/
         if (event.getSource() instanceof Circle) {
             Node tmpNode = ((Circle) event.getSource()).getParent();
             System.out.println(tmpNode);
             rowActual = gridPane.getRowIndex(tmpNode);
             columnsActual = gridPane.getColumnIndex(tmpNode);
-            // ===============================================================================================
+            boolean aze=false;
 
-            //-------------------------------------------Begin manage the game--------------------------------
             if (tmpPawns == null) { // If no pawn was choosen before
                 if(roundBlue){ // If it's the turn of blue player to play
                     for ( Pawns pawn : model.board.bluePlayer.pawns){
                         if (pawn.comparePawns(rowActual,columnsActual))
                             detectionMove(rowActual,columnsActual);
                     }
-
                 }
             }
-
         }
     }
 
@@ -110,17 +94,17 @@ public class Controller implements Initializable{
             if (pawn.comparePawns(rowActual,columnsActual)){ // Check if the pawn have the same coordinate as the mouse click
                 tmpPawns = pawn; // Save the pawn in a tampon
                 possibleMoves = model.board.findMovePawn(tmpPawns); // Check all the possibility of path for the pawn
-                System.out.println(possibleMoves);
                 if (!possibleMoves.isEmpty()){
-                    for (Node node : gridPane.getChildren()){ // this iteration is to compare all Square with the coordinate of the list possibleMoves and make a border around the square
-                        for (Square tmpSquare : possibleMoves) {
-                            if (node.contains((double) tmpSquare.row, (double) tmpSquare.columns)) {
-                                node.setStyle("-fx-border-color: red;");
-                            }
+                    for (Square square : possibleMoves){
+                        for (Node node : gridPane.getChildren()){
+                           if(node instanceof AnchorPane) {
+                               if (square.getRow() == gridPane.getRowIndex(node) && square.getColumns() == gridPane.getColumnIndex(node)) {
+                                   node.setStyle("-fx-border-color: red;");
+                               }
+                           }
                         }
                     }
                 }
-
             }
         }
     }

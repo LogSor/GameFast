@@ -65,8 +65,8 @@ public class Board {
             opposingColor=Color.BLUE;
             i=p.row+1;
             j=p.columns-1;
-            //diagonale avant gauche
 
+            //diagonale avant gauche
             while (i<8 && j<81 && squares[i][j].pawns==null){
 
                 findSquares.add(squares[i][j]);
