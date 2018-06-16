@@ -36,6 +36,13 @@ public class Pawns {
         return tab;
     }
 
+    public boolean comparePawns(int row, int columns){
+        if(this.row==row && this.columns == columns){
+            return true;
+        }
+        return false;
+    }
+
     public int getRow() {
         return row;
     }

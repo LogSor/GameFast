@@ -31,15 +31,7 @@ public class Board {
                 if (i<3 || i>4){
                     if (i % 2 ==0){
                         if (j%2 ==0){
-                            Pawns p;
-                            if (i<3){
-                                p = new Pawns(i,j,redPlayer);
-                                redPlayer.addPawns(p);
-                            }else{
-                                p = new Pawns(i,j,bluePlayer);
-                                bluePlayer.addPawns(p);
-                            }
-
+                            Pawns p = createPawn(i,j);
                             squares[i][j]= new Square(i,j,p);
                         }else {
                             squares[i][j]= new Square(i,j);
@@ -47,14 +39,7 @@ public class Board {
 
                     }else {
                         if (j%2 !=0){
-                            Pawns p;
-                            if (i<3){
-                                p = new Pawns(i,j,redPlayer);
-                                redPlayer.addPawns(p);
-                            }else{
-                                p = new Pawns(i,j,bluePlayer);
-                                bluePlayer.addPawns(p);
-                            }
+                            Pawns p = createPawn(i,j);
 
                             squares[i][j]= new Square(i,j,p);
                         }else {
@@ -69,7 +54,7 @@ public class Board {
     }
 
     // renvoie les cases que le pion p peut acceder
-    public ArrayList<Square> findMovePawn(Pawns p){
+    public ArrayList<Square> findMovePawn(Pawns p){ // sa ça va pas
         ArrayList<Square> findSquares = new ArrayList<>();
         int i,j;
         i=p.row;
@@ -82,10 +67,17 @@ public class Board {
         else{
             opposingColor=Color.RED;
         }
+        /*
+
+        ATTENTION
+
+        ICI C'EST POURRIE
+
+         */
 
         //diagonale avant gauche
-        while (squares[i][j].pawns==null && i<8 && j>-1){
-            findSquares.add(squares[i][j]);
+        while (squares[i-1][j-1].pawns==null && i<8 && j>-1){
+            findSquares.add(squares[i-1][j-1]);
             i++;
             j--;
         }
@@ -183,6 +175,20 @@ public class Board {
 
     public ArrayList<Pawns> getPawns() {
         return pawns;
+    }
+
+    public Pawns createPawn(int i, int j){
+        Pawns p;
+        if (i<3){
+            p = new Pawns(i,j,redPlayer);
+            redPlayer.addPawns(p);
+            pawns.add(p);
+        }else{
+            p = new Pawns(i,j,bluePlayer);
+            bluePlayer.addPawns(p);
+            pawns.add(p);
+        }
+        return p;
     }
 
     public void setPawns(ArrayList<Pawns> pawns) {
