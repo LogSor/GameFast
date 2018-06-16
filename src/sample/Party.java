@@ -34,6 +34,10 @@ public class Party {
             return true;
         }
 
+        if (nbRound==48){
+            return true;
+        }
+
         return false;
     }
 
@@ -62,5 +66,10 @@ public class Party {
 
     public void setFinish(Boolean finish) {
         isFinish = finish;
+    }
+
+    public int incrementNbround(){
+        nbRound++;
+        return nbRound;
     }
 }
