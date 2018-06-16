@@ -39,8 +39,12 @@ public class Party {
 
     //recupere le resultat de la partie
     public void resultOfparty(){
-        if(partyIsFinish()){
-            System.out.println("winner is "+ winner);
+        if (winner!=null) {
+            if (partyIsFinish()) {
+                System.out.println("winner is " + winner);
+            }
+        }else {
+            System.out.println("Plus de déplacement possible égalité");
         }
     }
 
