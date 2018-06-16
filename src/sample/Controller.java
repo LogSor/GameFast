@@ -93,7 +93,11 @@ public class Controller implements Initializable{
             //-------------------------------------------Begin manage the game--------------------------------
             if (tmpPawns == null) { // If no pawn was choosen before
                 if(roundBlue){ // If it's the turn of blue player to play
-                    detectionMove(rowActual,columnsActual);
+                    for ( Pawns pawn : model.board.bluePlayer.pawns){
+                        if (pawn.comparePawns(rowActual,columnsActual))
+                            detectionMove(rowActual,columnsActual);
+                    }
+
                 }
             }
 
