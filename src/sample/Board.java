@@ -61,16 +61,13 @@ public class Board {
         Color opposingColor;
 
         if (Color.RED.equals(p.player.color)){
-            opposingColor=Color.blue;
 
-
-
-            opposingColor=Color.RED;
+            opposingColor=Color.BLUE;
             i=p.row+1;
             j=p.columns-1;
             //diagonale avant gauche
 
-            while (i<8 && j>-1 && squares[i][j].pawns==null){
+            while (i<8 && j<81 && squares[i][j].pawns==null){
 
                 findSquares.add(squares[i][j]);
                 i++;
@@ -95,8 +92,8 @@ public class Board {
             }
         }
         else{
-            opposingColor=Color.BLUE;
-            
+            opposingColor=Color.RED;
+
             //diagonale arrière gauche
             i=p.row-1;
             j=p.columns-1;
