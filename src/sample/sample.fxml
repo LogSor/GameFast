@@ -39,15 +39,16 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <AnchorPane fx:id="caseA1" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2E2E2E;">
+                  <AnchorPane fx:id="caseA1" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2E2E2E;" GridPane.columnIndex="0" GridPane.rowIndex="0">
                      <children>
                         <Circle fx:id="red1" fill="RED" layoutX="50.0" layoutY="38.0" onMouseClicked="#movePion" radius="27.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
                      </children></AnchorPane>
-                  <AnchorPane fx:id="caseC1" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2E2E2E;" GridPane.columnIndex="2">
+                  <AnchorPane fx:id="caseC1" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2E2E2E;" GridPane.columnIndex="2" GridPane.rowIndex="0">
                      <children>
                         <Circle fx:id="red2" fill="RED" layoutX="50.0" layoutY="38.0" onMouseClicked="#movePion" radius="27.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
                      </children></AnchorPane>
-                  <AnchorPane fx:id="caseE1" layoutX="208.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2E2E2E;" GridPane.columnIndex="4">
+
+                  <AnchorPane fx:id="caseE1" layoutX="208.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2E2E2E;" GridPane.columnIndex="4" GridPane.rowIndex="0">
                      <children>
                         <Circle fx:id="red3" fill="RED" layoutX="50.0" layoutY="38.0" radius="27.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
                      </children></AnchorPane>
@@ -155,7 +156,7 @@
                         <Insets />
                      </GridPane.margin></AnchorPane>
                   <AnchorPane fx:id="caseF1" layoutX="308.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="5" />
-                  <AnchorPane fx:id="caseH1" layoutX="508.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="7" />
+                  <AnchorPane fx:id="caseH1" layoutX="508.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="7"  />
                   <AnchorPane fx:id="caseA2" layoutX="708.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" GridPane.rowIndex="1" />
                   <AnchorPane fx:id="caseC2" layoutX="10.0" layoutY="85.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                   <AnchorPane fx:id="caseE2" layoutX="208.0" layoutY="85.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" GridPane.columnIndex="4" GridPane.rowIndex="1" />

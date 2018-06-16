@@ -53,8 +53,8 @@ public class Board {
         }
     }
 
-    // renvoie les cases que le pion p peut acceder
-    public ArrayList<Square> findMovePawn(Pawns p){ // sa ça va pas
+    public ArrayList<Square> findMovePawn(Pawns p){
+
         ArrayList<Square> findSquares = new ArrayList<>();
         int i,j;
 
@@ -62,71 +62,65 @@ public class Board {
 
         if (Color.RED.equals(p.player.color)){
             opposingColor=Color.blue;
+
+            //diagonale arrière gauche
+            i=p.row-1;
+            j=p.columns-1;
+            while ( i>-1 && j>-1 && squares[i][j].pawns==null){
+                findSquares.add(squares[i][j]);
+                i--;
+                j--;
+            }
+
+            if (i>0 && i<8 && j>0 && j<8 && squares[i][j].pawns != null && squares[i][j].pawns.player.color==opposingColor){
+                findSquares.add(squares[i][j]);
+            }
+
+            //diagonal arrière droite
+            i=p.row-1;
+            j=p.columns+1;
+            while (i>-1 && j<8 && squares[i][j].pawns==null){
+                findSquares.add(squares[i][j]);
+                i--;
+                j++;
+            }
+
+            if (i>0 && i<8 && j>0 && j<8 && squares[i][j].pawns != null && squares[i][j].pawns.player.color==opposingColor){
+                findSquares.add(squares[i][j]);
+            }
+
         }
         else{
+
             opposingColor=Color.RED;
-        }
-        /*
+            i=p.row+1;
+            j=p.columns-1;
+            //diagonale avant gauche
 
-        ATTENTION
+            while (i<8 && j>-1 && squares[i][j].pawns==null){
 
-        ICI C'EST POURRIE
+                findSquares.add(squares[i][j]);
+                i++;
+                j--;
+            }
 
-         */
+            if (i>0 && i<8 && j>0 && j<8 && squares[i][j].pawns != null && squares[i][j].pawns.player.color==opposingColor){
+                findSquares.add(squares[i][j]);
+            }
+            //diagonale avant droite
+            i=p.row+1;
+            j=p.columns+1;
 
-        i=p.row+1;
-        j=p.columns-1;
-        //diagonale avant gauche
+            while (i<8 && j<8 && squares[i][j].pawns==null ){
+                findSquares.add(squares[i][j]);
+                i++;
+                j++;
+            }
 
-        while (i<8 && j>-1 && squares[i][j].pawns==null){
+            if (i>0 && i<8 && j>0 && j<8 && squares[i][j].pawns != null && squares[i][j].pawns.player.color==opposingColor){
+                findSquares.add(squares[i][j]);
+            }
 
-            findSquares.add(squares[i][j]);
-            i++;
-            j--;
-        }
-
-        if (i>0 && i<8 && j>0 && j<8 && squares[i][j].pawns != null && squares[i][j].pawns.player.color==opposingColor){
-            findSquares.add(squares[i][j]);
-        }
-        //diagonale avant droite
-        i=p.row+1;
-        j=p.columns+1;
-
-        while (i<8 && j<8 && squares[i][j].pawns==null ){
-            findSquares.add(squares[i][j]);
-            i++;
-            j++;
-        }
-
-        if (i>0 && i<8 && j>0 && j<8 && squares[i][j].pawns != null && squares[i][j].pawns.player.color==opposingColor){
-            findSquares.add(squares[i][j]);
-        }
-
-        //diagonale arrière gauche
-        i=p.row-1;
-        j=p.columns-1;
-        while ( i>-1 && j>-1 && squares[i][j].pawns==null){
-            findSquares.add(squares[i][j]);
-            i--;
-            j--;
-        }
-
-
-        if (i>0 && i<8 && j>0 && j<8 && squares[i][j].pawns != null && squares[i][j].pawns.player.color==opposingColor){
-            findSquares.add(squares[i][j]);
-        }
-
-        //diagonal arrière droite
-        i=p.row-1;
-        j=p.columns+1;
-        while (i>-1 && j<8 && squares[i][j].pawns==null){
-            findSquares.add(squares[i][j]);
-            i--;
-            j++;
-        }
-
-        if (i>0 && i<8 && j>0 && j<8 && squares[i][j].pawns != null && squares[i][j].pawns.player.color==opposingColor){
-            findSquares.add(squares[i][j]);
         }
 
         return findSquares;

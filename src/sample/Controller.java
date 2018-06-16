@@ -85,6 +85,7 @@ public class Controller implements Initializable{
         --------------------------Recuperation directly position of circle------------------------------*/
         if (event.getSource() instanceof Circle) {
             Node tmpNode = ((Circle) event.getSource()).getParent();
+            System.out.println(tmpNode);
             rowActual = gridPane.getRowIndex(tmpNode);
             columnsActual = gridPane.getColumnIndex(tmpNode);
             // ===============================================================================================
@@ -100,17 +101,22 @@ public class Controller implements Initializable{
     }
 
     public void detectionMove(int rowActual, int columnsActual){
+        System.out.println("détection");
         for (Pawns pawn : model.board.getPawns()){ // Check all pawns of the board
             if (pawn.comparePawns(rowActual,columnsActual)){ // Check if the pawn have the same coordinate as the mouse click
                 tmpPawns = pawn; // Save the pawn in a tampon
                 possibleMoves = model.board.findMovePawn(tmpPawns); // Check all the possibility of path for the pawn
-                for (Node node : gridPane.getChildren()){ // this iteration is to compare all Square with the coordinate of the list possibleMoves and make a border around the square
-                    for (Square tmpSquare : possibleMoves) {
-                        if (node.contains((double) tmpSquare.row, (double) tmpSquare.columns)) {
-                            node.setStyle("-fx-border-color: red;");
+                System.out.println(possibleMoves);
+                if (!possibleMoves.isEmpty()){
+                    for (Node node : gridPane.getChildren()){ // this iteration is to compare all Square with the coordinate of the list possibleMoves and make a border around the square
+                        for (Square tmpSquare : possibleMoves) {
+                            if (node.contains((double) tmpSquare.row, (double) tmpSquare.columns)) {
+                                node.setStyle("-fx-border-color: red;");
+                            }
                         }
                     }
                 }
+
             }
         }
     }
