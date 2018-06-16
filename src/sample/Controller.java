@@ -29,7 +29,7 @@ public class Controller implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         model = new Model();
 
-
+        /*
         for (Pawns p:model.board.pawns
                 ) {
             System.out.println(p);
@@ -56,11 +56,12 @@ public class Controller implements Initializable{
         System.out.println("ancienne case  possède   pion donc  :" + model.board.squares[5][7].pawns);
         System.out.println("Nouvelle case non atteinte car allié:"+ model.board.squares[0][0].pawns);
 
-        //System.out.println(model.board.pawns.get(0) + ":");
-        //System.out.println(model.board.findMovePawn(model.board.pawns.get(0)));
+        System.out.println(model.board.pawns.get(0) + ":");
+        System.out.println(model.board.findMovePawn(model.board.pawns.get(0)));
 
-        // System.out.println("coordonné du pion:"+model.board.pawns.get(10).row+ ":"+ model.board.pawns.get(10).columns);
-        //System.out.println(model.board.findMovePawn(model.board.pawns.get(10)));
+         System.out.println("coordonné du pion:"+model.board.pawns.get(10).row+ ":"+ model.board.pawns.get(10).columns);
+        System.out.println(model.board.findMovePawn(model.board.pawns.get(10)));
+        */
     }
 
     @FXML
