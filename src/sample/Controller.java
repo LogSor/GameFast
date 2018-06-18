@@ -81,6 +81,7 @@ public class Controller implements Initializable{
                 if(roundBlue){ // If it's the turn of blue player to play
                     for ( Pawns pawn : model.board.bluePlayer.pawns){
                         if (pawn.comparePawns(rowActual,columnsActual))
+                            System.out.println(pawn);
                             detectionMove(rowActual,columnsActual);
                     }
                 }
@@ -93,9 +94,12 @@ public class Controller implements Initializable{
         for (Pawns pawn : model.board.getPawns()){ // Check all pawns of the board
             if (pawn.comparePawns(rowActual,columnsActual)){ // Check if the pawn have the same coordinate as the mouse click
                 tmpPawns = pawn; // Save the pawn in a tampon
+                System.out.println(tmpPawns);
                 possibleMoves = model.board.findMovePawn(tmpPawns); // Check all the possibility of path for the pawn
+                System.out.println(possibleMoves);
                 if (!possibleMoves.isEmpty()){
                     for (Square square : possibleMoves){
+
                         for (Node node : gridPane.getChildren()){
                            if(node instanceof AnchorPane) {
                                if (square.getRow() == gridPane.getRowIndex(node) && square.getColumns() == gridPane.getColumnIndex(node)) {

@@ -17,8 +17,8 @@ public class Board {
     public Board(){
         pawns= new ArrayList<>();
         squares = new Square[8][8];
-        redPlayer = new Player("Joueur Blue",Color.RED);
-        bluePlayer = new Player("Joueur Rouge",Color.BLUE);
+        redPlayer = new Player("Joueur Rouge",Color.RED);
+        bluePlayer = new Player("Joueur Blue",Color.BLUE);
 
         initalisationBoard();
     }
