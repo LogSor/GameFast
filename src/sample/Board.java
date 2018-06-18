@@ -190,6 +190,21 @@ public class Board {
         return findSquares;
     }
 
+    public Boolean damePromotion(Pawns p){
+        if (!p.isDame() && p.player.color.equals(Color.RED) && p.row == 7){
+            p.isDame=true;
+            return true;
+        }
+
+        if (!p.isDame() && p.player.color.equals(Color.BLUE) && p.row == 0){
+            p.isDame=true;
+            return true;
+        }
+
+        return false;
+
+    }
+
     // renvoie le joueur qui n'as plus de déplacement possible, sinon null
     public Player cannotMove(){
         int nbPawns=0;

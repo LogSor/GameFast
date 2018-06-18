@@ -5,12 +5,14 @@ import java.util.ArrayList;
 
 public class Pawns {
     protected int row,columns;
-    Player player; //player
+    protected Player player; //player
+    protected boolean isDame;
 
     public Pawns(int row, int columns, Player player) {
         this.row = row;
         this.columns = columns;
         this.player = player;
+        isDame=false;
     }
 
     // permet de manger un pion si il n'est pas de la même couleur et renvoie le tab contenant les nouvelles cordonées tab[0] = row et tab[1] = columns
@@ -71,5 +73,11 @@ public class Pawns {
         return "Row:"+ row + " Columns:"+ columns+ " Player :" + player.name;
     }
 
+    public boolean isDame() {
+        return isDame;
+    }
 
+    public void setDame(boolean dame) {
+        isDame = dame;
+    }
 }
